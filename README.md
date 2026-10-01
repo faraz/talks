@@ -1,5 +1,5 @@
 # Talks
 
-Built slides, served at https://faraz.github.io/talks/. One folder per talk.
+Built slides, served at https://faraz.github.io/talks/
 
-This repository holds build output only. It is written by a publish script in each talk's own repository; do not edit it by hand.
+This repository holds build output only. It is written by the publish script in the talk's own repository; do not edit it by hand.
