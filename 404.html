@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Not found</title>
+    <style>body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #03050C; color: #F3F6FC; font: 20px/1.6 system-ui, sans-serif; } a { color: #8FB0FF; }</style>
+  </head>
+  <body>
+    <script>(function () { var talks = ["inference-stack"]; var parts = location.pathname.split('/'); var home = '/' + parts[1] + '/'; var talk = parts[2]; var rest = parts.slice(3).join('/'); if (talk && talks.indexOf(talk) !== -1 && rest) { try { sessionStorage.setItem('pages:redirect', location.pathname + location.search + location.hash); } catch (e) {} location.replace(home + talk + '/'); } else if (location.pathname !== home) { location.replace(home); } })();</script>
+    <p>Not found. <a href="/talks/">Talks</a></p>
+  </body>
+</html>
