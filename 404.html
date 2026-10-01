@@ -1,7 +1,33 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <script>(function () { var base = "/talks/"; var old = base + 'inference-stack'; var path = location.pathname; if (path === old || path.indexOf(old + '/') === 0) history.replaceState(null, '', base + 's/inference-stack' + location.search + location.hash); })();</script>
+    <script>
+(function () {
+  var base = "/talks/";
+  var path = location.pathname;
+  var query = new URLSearchParams(location.search);
+  var old = base + 'inference-stack';
+  if (path === old || path.indexOf(old + '/') === 0) path = base + 's/inference-stack';
+  if (path.indexOf(base + 'play/') === 0) {
+    path = base + 's/' + path.slice((base + 'play/').length).replace(/\/+$/, '');
+    query.set('play', '1');
+  }
+  var search = query.toString();
+  if (path !== location.pathname || search !== location.search.slice(1)) history.replaceState(null, '', path + (search ? '?' + search : '') + location.hash);
+  if (!query.has('play')) return;
+  var seen = false;
+  var tries = 0;
+  var timer = setInterval(function () {
+    var viewer = document.querySelector('main[data-slide-id]');
+    if (viewer) {
+      seen = true;
+      document.body.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+    } else if (seen || ++tries > 300) {
+      clearInterval(timer);
+    }
+  }, 100);
+})();
+</script>
     <meta charset="UTF-8" />
     <link rel="icon" href="/talks/assets/favicon-B5J45_S7.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
