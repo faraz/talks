@@ -1,7 +1,0 @@
-import{_ as e,a as t,c as n,g as r,h as i,i as a,l as o,m as s,n as c,o as l,r as u,s as d,t as f}from"./index-Dj-YA9Qn.js";var p=e(r(),1),m=e(i(),1),h=s(),g=15e3,_=100;function v(e){return`.${e} *, .${e} *::before, .${e} *::after {
-    animation-delay: -1s !important;
-    animation-duration: 1ms !important;
-    animation-iteration-count: 1 !important;
-    animation-fill-mode: forwards !important;
-    transition: none !important;
-  }`}async function y(e,r){let i=e.default??[],s=document.createElement(`div`);s.className=r,s.setAttribute(`aria-hidden`,`true`),Object.assign(s.style,{position:`fixed`,left:`-99999px`,top:`0`,pointerEvents:`none`}),document.body.appendChild(s);let y=document.createElement(`style`);y.textContent=v(r),document.head.appendChild(y);let b=e.design?d(e.design):null,x=[],S=[],C=()=>{for(let e of x)e.unmount();s.remove(),y.remove()};try{for(let e=0;e<i.length;e++){let n=i[e];if(!n)continue;let r=document.createElement(`div`);if(r.setAttribute(`data-osd-canvas`,``),r.style.width=`${l}px`,r.style.height=`${t}px`,r.style.overflow=`hidden`,r.style.background=b?.[`--osd-bg`]??`#fff`,b)for(let[e,t]of Object.entries(b))r.style.setProperty(e,t);s.appendChild(r),S.push(r);let o=(0,h.createRoot)(r);x.push(o),(0,m.flushSync)(()=>{o.render((0,p.createElement)(a,{index:e,total:i.length},(0,p.createElement)(n)))})}await n(),await u();let e=performance.now()+g;for(;performance.now()<e&&!S.every(e=>f(e));)await o(_);await c(s),await u()}catch(e){throw C(),e}return{container:s,frames:S,dispose:C}}export{y as mountDeckOffscreen};
